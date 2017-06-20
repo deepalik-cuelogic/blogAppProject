@@ -1,0 +1,17 @@
+[   {          "fname": "Deepali",
+                "lname": "Kakade",
+                "id": 1,
+                "email": "dkakade1@gmail.com",
+                "username" :"deepalik",
+                "password": "deepali123",
+                "usertype": "writer"
+    },
+    {           "fname": "Deepali",
+                "lname": "Kakade",
+                "id": 2,
+                "email": "deepalik@gmail.com",
+                "username" :"deepalireader",
+                "password": "reader123",
+                "usertype": "reader"
+    }
+]

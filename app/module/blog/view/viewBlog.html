@@ -1,0 +1,121 @@
+<div id="main-wrapper">
+  <div class="main section" id="main">
+    <div class="widget Blog" data-version="1" id="Blog1">
+      <div class="blog-posts hfeed">
+	   <div class="date-outer">
+			<div class="date-posts">
+			    <h3 class="display-inline">{{blogData.blogTitle}}</h3>
+			    <div class="display-inline blog-btns" ng-if="userType=='writer'">
+				    <a class="btn btn-info" ui-sref="editblog({blogtoedit: blogData})">Edit</a>
+				    <a class="btn btn-danger" ng-click="remove(blogData.id)">Delete</a>
+			    </div>
+			    <div>
+			    	<img src="assets/images/blog1.jpg">
+			    </div>
+			    <div class="blog-content">
+			    	<p ng-bind-html="blogData.blogContent"></p>
+			    </div>
+			 </div>
+		</div>
+		<div class="ui comments">
+	      <h3 class="ui dividing header">Comments</h3>
+	      <div class="comment">
+	        <a class="avatar">
+	          <img src="">
+	        </a>
+	        <div class="content">
+	          <a class="author">Matt</a>
+	          <div class="metadata">
+	            <span class="date">Today at 5:42PM</span>
+	          </div>
+	          <div class="text">
+	            How artistic!
+	          </div>
+	          <div class="actions">
+	            <a class="reply">Reply</a>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="comment">
+	        <a class="avatar">
+	          <img src="">
+	        </a>
+	        <div class="content">
+	          <a class="author">Elliot Fu</a>
+	          <div class="metadata">
+	            <span class="date">Yesterday at 12:30AM</span>
+	          </div>
+	          <div class="text">
+	            <p>This has been very useful for my research. Thanks as well!</p>
+	          </div>
+	          <div class="actions">
+	            <a class="reply">Reply</a>
+	          </div>
+	        </div>
+	        <div class="comments">
+	          <div class="comment">
+	            <a class="avatar">
+	              <img src="">
+	            </a>
+	            <div class="content">
+	              <a class="author">Jenny Hess</a>
+	              <div class="metadata">
+	                <span class="date">Just now</span>
+	              </div>
+	              <div class="text">
+	                Elliot you are always so right :)
+	              </div>
+	              <div class="actions">
+	                <a class="reply">Reply</a>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="comment">
+	        <a class="avatar">
+	          <img src="">
+	        </a>
+	        <div class="content">
+	          <a class="author">Joe Henderson</a>
+	          <div class="metadata">
+	            <span class="date">5 days ago</span>
+	          </div>
+	          <div class="text">
+	            Dude, this is awesome. Thanks so much
+	          </div>
+	          <div class="actions">
+	            <a class="reply">Reply</a>
+	          </div>
+	        </div>
+	      </div>
+	      <form class="ui reply form">
+	        <div class="field">
+	          <textarea class="form-control"></textarea>
+	        </div>
+	        <div class="text-right">
+	          <a class="btn btn-success">Add Comment</a>
+	        </div>
+	      </form>
+    </div>
+	   </div>
+	 </div>
+  </div>
+</div>
+<aside id="sidebar-wrapper" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+	<div class="sidebartop section" id="sidebartop"><div class="widget PopularPosts" data-version="1" id="PopularPosts1">
+	<h4><span>Popular Post</span></h4>
+	<div class="widget-content popular-posts">
+	<ul>
+	<li>
+	  <div class="item-thumbnail-only">
+		<div class="item-thumbnail">
+		<a href="https://cokeskitti.blogspot.in/2016/05/smooth-sweet-tea-with-cookies.html" target="_blank">
+		<img alt="Smooth Sweet Tea with Cookies" height="auto" src="https://1.bp.blogspot.com/-MKV-KZE5alQ/V0b035fISwI/AAAAAAAAMik/6RyIGGkcFjkqJ2YKBGYGR5c62ghvV7J4ACLcB/s90-c/Smooth%2BSweet%2BTea%2Bwith%2BCookies.jpg" title="Smooth Sweet Tea with Cookies" width="100%">
+		</a>
+		</div>
+		<div class="item-title"><a href="https://cokeskitti.blogspot.in/2016/05/smooth-sweet-tea-with-cookies.html" title="Smooth Sweet Tea with Cookies">Smooth Sweet Tea with Cookies</a></div>
+	  </div>
+	  <div class="clear"></div>
+	</li>
+</aside>

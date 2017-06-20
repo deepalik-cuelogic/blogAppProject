@@ -1,0 +1,6 @@
+<h2>{{addeditTitle}} Blog</h2>
+<form id="addBlogForm" class="form-horizontal" role="form" name="addBlogForm" novalidate>
+	<input type="text" class="form-control title-text" placeholder="Blog title" ng-model="blogTitle" required>
+	<textarea id="editortext"></textarea>
+	<a class="btn btn-success float-right" ng-disabled="addBlogForm.$invalid" ng-click="saveBlog()">Save</a>
+</form>

@@ -1,0 +1,14 @@
+[{
+	"id":1,
+	"blogTitle": "Smooth Sweet Tea with Cookies",
+	"img-src":"assets/images/blog3.jpg",
+	"blogContent" : "<p>Crudely zealously mallard then smiled while in hence and some until iguana yikes crud less when jeepers sneered crud overdid pulled reindeer hyena that anticipative one soothing less ouch bee cockatoo compulsively hesitantly outran grimy cold the that basic according rewound showily gosh python.</p><h3><strong>Installation</strong></h3><p>1. Log in ke Blogger dashboard dan buka Template &gt; Edit HTML.<br />2. Silahkan backup template lama Anda jika Anda memutuskan untuk menggunakannya lagi. Untuk melakukan ini, klik pada &quot;download template lengkap&quot; link dan simpan template.<br />3. Kemudian, cari lokasi XML template yang baru saja Anda download dan tekan &quot;Upload&quot;.</p>"
+ },
+ {
+ 	"id":2,
+ 	"blogTitle": "New Smartphone App Can Warn Sleepy Drivers",
+ 	"img-src":"assets/images/blog2.jpg",
+ 	"blogContent" :"<p>Researchers at&nbsp;Hong Kong Baptist University&nbsp;have developed a smartphone app that can detect drowsy drivers and alert them.</p><p>The new approach adopts a smartphone&#39;s real-time video to track and analyse the facial features of a driver, in particular the changes in his eyelids and head position, which are prominent fatigue symptoms.&nbsp;<br /><br />With this system pre-installed in a generic smartphone, a driver just has to put it near the steering wheel with the front camera facing him in his normal driving position.&nbsp;</p><p>When the camera captures features like drooping eyelids, drowsiness or even nodding off, an alarm is automatically set off.&nbsp;<br /><br />To ensure that the driver is awakened, the driver has to turn off the alarm either by voice or by hand.&nbsp;<br /><br />This method requires only a smartphone without any additional devices or sensors, Professor Cheung Yiu-ming said in a statement released by the Hong Kong Baptist University.&nbsp;</p>"
+ }
+
+]
