@@ -5,7 +5,7 @@
 	   <div class="date-outer">
 			<div class="date-posts">
 			    <h3 class="display-inline">{{blogData.blogTitle}}</h3>
-			    <div class="display-inline blog-btns" ng-if="userType=='writer'">
+			    <div class="display-inline blog-btns" ng-if="user.usertype=='writer'">
 				    <a class="btn btn-info" ui-sref="editblog({blogtoedit: blogData})">Edit</a>
 				    <a class="btn btn-danger" ng-click="remove(blogData.id)">Delete</a>
 			    </div>
@@ -19,82 +19,37 @@
 		</div>
 		<div class="ui comments">
 	      <h3 class="ui dividing header">Comments</h3>
-	      <div class="comment">
-	        <a class="avatar">
-	          <img src="">
-	        </a>
-	        <div class="content">
-	          <a class="author">Matt</a>
-	          <div class="metadata">
-	            <span class="date">Today at 5:42PM</span>
-	          </div>
-	          <div class="text">
-	            How artistic!
-	          </div>
-	          <div class="actions">
-	            <a class="reply">Reply</a>
-	          </div>
-	        </div>
-	      </div>
-	      <div class="comment">
-	        <a class="avatar">
-	          <img src="">
-	        </a>
-	        <div class="content">
-	          <a class="author">Elliot Fu</a>
-	          <div class="metadata">
-	            <span class="date">Yesterday at 12:30AM</span>
-	          </div>
-	          <div class="text">
-	            <p>This has been very useful for my research. Thanks as well!</p>
-	          </div>
-	          <div class="actions">
-	            <a class="reply">Reply</a>
-	          </div>
-	        </div>
-	        <div class="comments">
-	          <div class="comment">
-	            <a class="avatar">
-	              <img src="">
-	            </a>
-	            <div class="content">
-	              <a class="author">Jenny Hess</a>
-	              <div class="metadata">
-	                <span class="date">Just now</span>
-	              </div>
-	              <div class="text">
-	                Elliot you are always so right :)
-	              </div>
-	              <div class="actions">
-	                <a class="reply">Reply</a>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	      <div class="comment">
-	        <a class="avatar">
-	          <img src="">
-	        </a>
-	        <div class="content">
-	          <a class="author">Joe Henderson</a>
-	          <div class="metadata">
-	            <span class="date">5 days ago</span>
-	          </div>
-	          <div class="text">
-	            Dude, this is awesome. Thanks so much
-	          </div>
-	          <div class="actions">
-	            <a class="reply">Reply</a>
-	          </div>
-	        </div>
+          <div>
+		      <div class="comments" template-code>
+			      <div class="comment" nested-item ng-repeat="comment in blogComments">
+			        <a class="avatar">
+			          <img src="assets/images/blog2.jpg">
+			        </a>
+			        <div class="content" >
+			          <a class="author">{{comment.author}}</a>
+			          <div class="metadata">
+			            <span class="date">{{comment.date}}</span>
+			          </div>
+			          <div class="text">
+			            <p>{{comment.text}}</p>
+			          </div>
+			          <div class="actions">
+			            <reply-link></reply-link>
+			            <div class="reply-box">
+			            	<!-- <input type="text" class="form-control" name="replybox" placeholder="reply to comment" ng-model="replytocomment"/>
+			            	<button class="btn btn-success" ng-click="replyToComment(replytocomment,comment.comment_id)">Reply</button> -->
+			            </div>
+			          </div>
+			        </div>
+			       </div>
+		      </div>
 	      </div>
 	      <form class="ui reply form">
 	        <div class="field">
-	          <textarea class="form-control"></textarea>
+	          <textarea class="form-control" ng-model="newComment"></textarea>
 	        </div>
-	        <div class="text-right">
-	          <a class="btn btn-success">Add Comment</a>
+	        <div class="text-right add-comment">
+	          <a class="btn btn-success" ng-click="addNewComment(newComment,blogData.id)">Add Comment</a>
 	        </div>
 	      </form>
     </div>

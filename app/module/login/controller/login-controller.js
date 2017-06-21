@@ -17,21 +17,18 @@
      $scope.password = '';
      $scope.loginError =false;
      $scope.validateLogin = function(){
-          // var filteredArray = $scope.usersData.filter(function( obj ) {
-          //   return obj.username === $scope.username && obj.password === $scope.password;
-          // });
           for(var x in $scope.usersData){
               if ($scope.username == $scope.usersData[x].username && $scope.password == $scope.usersData[x].password) {
+                 $rootScope.user = $scope.usersData[x];
                  $state.go('blogs');
-                 $rootScope.userType = $scope.usersData[x].usertype;
                   break;
-                 }
-                 else {
-                    if(x == ($scope.usersData).length-1){
-                       $scope.loginError =true;
-                    }
-                    else;
-                 }
+              }
+              else {
+                  if(x == ($scope.usersData).length-1){
+                    $scope.loginError =true;
+                  }
+                  else;
+              }
             }
      }
   }]

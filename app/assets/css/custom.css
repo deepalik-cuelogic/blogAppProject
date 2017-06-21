@@ -318,7 +318,7 @@ overflow: hidden
 }
 .ui.comments .comment .comments {
     margin: 0 0 .5em .5em;
-    padding: 1em 0 1em 1em
+    padding: 1em 0 0em 1em
 }
 .ui.comments .comment .comments:before {
     position: absolute;
@@ -408,5 +408,12 @@ overflow: hidden
 .ui.comments .reply.form textarea {
     font-size: 1em;
     height: 12em
+}
+.add-comment{
+  margin : 10px 0px;
+}
+.reply-box input{
+  width: 85%;
+  display: inline-block;
 }
 /*comments css end*/

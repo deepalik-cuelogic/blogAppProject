@@ -5,7 +5,7 @@
 	   <div class="date-outer">
 			<div class="date-posts">
 			    <h3 class="display-inline">Blogs</h3>
-			    <a class="btn btn-info float-right" ui-sref="addblog" ng-if="userType=='writer'">Add New Blog</a>
+			    <a class="btn btn-info float-right" ui-sref="addblog" ng-if="user.usertype=='writer'">Add New Blog</a>
           		<div class="post-outer" ng-repeat = "blog in allBlogsList">
 					<div class="post hentry">
 						<div class="post-thumb"><img width="200" height="150" src="assets/images/blog1.jpg">
