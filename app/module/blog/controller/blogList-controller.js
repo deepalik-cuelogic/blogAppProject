@@ -1,8 +1,8 @@
-blogAppModule.controller('blogListController' ,['$scope','$rootScope', '$state','blogService',
-     function blogListController($scope, $rootScope, $state ,blogService){
+blogAppModule.controller('blogListController' ,['$scope','$rootScope', '$state','blogFactory',
+     function blogListController($scope, $rootScope, $state ,blogFactory){
      	//load blogs
      	$scope.loadBlogs = function(){
-	     	blogService.getBlogList().then(function(response) {
+	     	blogFactory.getBlogList().then(function(response) {
 	     		$rootScope.allBlogsList = response.data;
 	     		$rootScope.arrIndex = {1:0 ,2:1};
 	     	 }, function(response) {

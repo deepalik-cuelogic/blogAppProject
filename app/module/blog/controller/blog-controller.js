@@ -1,5 +1,5 @@
-blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'blogService',
-     function blogController($scope, $rootScope, $state, blogService){
+blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'blogFactory',
+     function blogController($scope, $rootScope, $state, blogFactory){
      	 $scope.addeditTitle = "Add";
      	 CKEDITOR.replace('editortext');
      	 $scope.blogtoEdit = $state.params.blogtoedit;
@@ -15,18 +15,18 @@ blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'bl
                 "comments": []
 	     	 }
 	     	//save blog data
-     	  	blogService.saveBlog($scope.blogData);
+     	  	blogFactory.saveBlog($scope.blogData);
 	        $state.go('blogs');
      	 }
      	
 }])
-.controller('showBlogController' ,['$scope','$rootScope', '$state','blogService',
-     function showBlogController($scope, $rootScope, $state, blogService){
+.controller('showBlogController' ,['$scope','$rootScope', '$state','blogFactory','commonFactory',
+     function showBlogController($scope, $rootScope, $state, blogFactory, commonFactory){
      	$scope.blogData = $state.params.blogDataObj;
         $scope.blogComments = $scope.blogData.comments;
         $scope.remove = function(object_id){
         	if(confirm("Do you  want to delete?")){
-        		blogService.removeBlog(object_id);
+        		blogFactory.removeBlog(object_id);
         		$state.go('blogs');	
         	}	
         };
@@ -52,7 +52,7 @@ blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'bl
         }
         //comment reply function
         $scope.replyToComment =function(commentReply , comment_id){
-            var currentComment = blogService.findById($scope.blogData.comments, comment_id);
+            var currentComment = commonFactory.findById($scope.blogData.comments, comment_id);
             var generatedId = currentComment.comments ? parseInt(currentComment.comment_id + String(currentComment.comments.length +1)) : 1;
             var newCommentObj = {
                 "comment_id": generatedId,
@@ -66,8 +66,8 @@ blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'bl
             angular.element(document.getElementsByClassName('reply-box')).html('');
         }
 }])
-.controller('editBlogController' ,['$scope', '$state','blogService',
-     function editBlogController($scope, $state , blogService){
+.controller('editBlogController' ,['$scope', '$state','blogFactory',
+     function editBlogController($scope, $state , blogFactory){
      	$scope.addeditTitle = "Edit";
      	//set blog data in the form
      	var blogtoEdit = $state.params.blogtoedit;
@@ -83,7 +83,7 @@ blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'bl
 	     	 	"blogContent" : data,
                 "comments":blogtoEdit.comments
 	     	 }
-     	 blogService.saveBlog($scope.blogData);
+     	 blogFactory.saveBlog($scope.blogData);
      	 $state.go('blogs');
      	}
 
