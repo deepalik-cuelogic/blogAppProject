@@ -1,8 +1,5 @@
 blogAppModule.factory('blogFactory' , function($http ,$rootScope){
     return{
-        getBlogList : function(){
-            return $http.get('/assets/data/event/blogs.json');
-        },
         saveBlog : function(object){
         	var index = $rootScope.arrIndex[object.id];
 		    if(index === undefined) {
