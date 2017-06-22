@@ -1,3 +1,4 @@
+//add new blog controller
 blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'blogFactory',
      function blogController($scope, $rootScope, $state, blogFactory){
      	 $scope.addeditTitle = "Add";
@@ -6,10 +7,13 @@ blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'bl
      	 //save blog function
      	 $scope.blogTitle = '';
      	 $scope.blogData = {};
+         //get blog list
+         $scope.allBlogsList =blogFactory.getBlogData();
      	 $scope.saveBlog = function(){
      	  	var data = CKEDITOR.instances.editortext.getData();
      	  	$scope.blogData = {
-     	 	 	"id": $rootScope.allBlogsList.length + 1,
+     	 	 	//"id": $rootScope.allBlogsList.length + 1,
+                "id": $scope.allBlogsList.length+1,
 	     	 	"blogTitle" : $scope.blogTitle,
 	     	 	"blogContent" : data,
                 "comments": []
@@ -41,10 +45,12 @@ blogAppModule.controller('blogController' ,['$scope','$rootScope', '$state', 'bl
                 "comments":[]
              }
              $scope.blogData.comments.push(newCommentObj);
+             var allBlogsList =blogFactory.getBlogData();
              //update global object
-             for (var i = 0; i < $rootScope.allBlogsList.length; i++)
-                if ($rootScope.allBlogsList[i].id && $rootScope.allBlogsList[i].id === blog_id) { 
-                    $rootScope.allBlogsList[i].comments.push(newCommentObj);
+             for (var i = 0; i < allBlogsList.length; i++)
+                if (allBlogsList[i].id && allBlogsList[i].id === blog_id) { 
+                    allBlogsList[i].comments.push(newCommentObj);
+                    blogFactory.setBlogData(allBlogsList);
                     break;
                 }
              $scope.newComment ='';

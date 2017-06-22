@@ -1,17 +1,32 @@
 blogAppModule.factory('blogFactory' , function($http ,$rootScope){
+    var setBlogDataObj;
     return{
+        //setter 
+        setBlogData : function(data){
+             setBlogDataObj = data;
+        },
+        //getter
+        getBlogData : function(){
+            return setBlogDataObj ;
+        },
         saveBlog : function(object){
+            var allBlogsList = this.getBlogData();
         	var index = $rootScope.arrIndex[object.id];
 		    if(index === undefined) {
-		        index = $rootScope.allBlogsList.length;
+		        //index = $rootScope.allBlogsList.length;
+                index = allBlogsList.length;
 		        $rootScope.arrIndex[object.id] = index;
 		    }
-		    $rootScope.allBlogsList[index] = object;
+		   //$rootScope.allBlogsList[index] = object;
+            allBlogsList[index] = object;
+            this.setBlogData(allBlogsList);
         },
         removeBlog : function(object_id){
-        	for (var i = 0; i < $rootScope.allBlogsList.length; i++)
-			    if ($rootScope.allBlogsList[i].id && $rootScope.allBlogsList[i].id === object_id) { 
-			        $rootScope.allBlogsList.splice(i, 1);
+            var allBlogsList = this.getBlogData();
+        	for (var i = 0; i < allBlogsList.length; i++)
+			    if (allBlogsList[i].id && allBlogsList[i].id === object_id) { 
+			        allBlogsList.splice(i, 1);
+                    this.setBlogData(allBlogsList);
 			        break;
 			    }
         }

@@ -1,14 +1,17 @@
-blogAppModule.controller('blogListController' ,['$scope','$rootScope', '$state','blogFactoryData',
-     function blogListController($scope, $rootScope, $state ,blogFactoryData){
+blogAppModule.controller('blogListController' ,['$scope','$rootScope', '$state','blogFactoryData','blogFactory',
+     function blogListController($scope, $rootScope, $state ,blogFactoryData,blogFactory){
      	//load blogs
+     	$scope.allBlogsList =blogFactory.getBlogData();
      	$scope.loadBlogs = function(){
 	     	blogFactoryData.getBlogList().then(function(response) {
-	     		$rootScope.allBlogsList = response.data;
+	     		blogFactory.setBlogData(response.data);
+	     		$scope.allBlogsList = response.data;
+	     		//$rootScope.allBlogsList = response.data;
 	     		$rootScope.arrIndex = {1:0 ,2:1};
 	     	 }, function(response) {
 	     	 });
 	     }
-	     if(!$rootScope.allBlogsList){
+	     if(!$scope.allBlogsList){
 	     	$scope.loadBlogs();
 	     }
 	    $scope.viewBlogs = function(currentBlog){
